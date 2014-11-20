@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+ <head>
+   <title>Tic-Tac-Toe</title>
+   <link rel="stylesheet" type="text/css" href="CSS trans testing.css">
+ </head>
+ <body>
+ 	<!--message to display if JavaScript is off, or browser is outdated-->
+ 	<noscript>This application requires JavaScript to work, sorry :(</noscript>
+ 	
+ 	<!--Just a bit of fun-->
+ 	<h1>Greetings, Professor Falken.</h1>
+ 	<h2>Shall we play a game?</h2>
+ 	
+ 	<!--container div-->
+ 	<div class="board">
+		<div class="top row">
+			<!--the attribute 'data-space' is a custom attribute
+			(which we are allowed to make in HTML5),
+			so that we can easily tell Javascript which move has been made,
+			using row-column format, like Cartegian coordinates-->
+			<div class="button n1" data-space="1-1"></div>
+			<div class="button n2" data-space="1-2"></div>
+			<div class="button n3" data-space="1-3"></div>
+		</div>
+		<div class="mid row">
+			<div class="button n4" data-space="2-1"></div>
+			<div class="button n5" data-space="2-2"></div>
+			<div class="button n6" data-space="2-3"></div>
+		</div>
+		<div class="bot row">
+			<div class="button n7" data-space="3-1"></div>
+			<div class="button n8" data-space="3-2"></div>
+			<div class="button n9" data-space="3-3"></div>
+		</div>
+	</div>
+	<!--we need to have some mechanism to change the computer's difficulty level-->
+	<p>
+		<h3>Choose your difficulty level:</h3>
+		
+		<!--automatically choose novice-->
+		<input type="radio" value="0" name="level" id="level1" checked>
+		<label for="level1">Novice</label>
+		<input type="radio" value="1" name="level" id="level2">
+		<label for="level2">Intermediate</label>
+		<input type="radio" value="2" name="level" id="level3">
+		<label for="level3">Expert</label>
+		
+		<!--If they give up (click to reload the page)-->
+		<br><br><a href="javascript:history.go(0)">Restart Game</a>
+	</p>
+	<!--Call JQuery from Google CDN-->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!--Include Javascript file-->
+    <script src="javascript.js"></script>
+ </body>
+</html>

@@ -1,0 +1,30 @@
+/*This code is probably freaking you out rn
+//So lemme walk you through what I did here.
+//I replaced all of your id's with classes, so it's more flexible,
+//and then, in this css file, I updated your
+//multiple button selectors, and replaced it with a single selector
+//for all buttons, that handles all the styling.
+//However, for the rows to work, I had to clear the floats.
+//Then, the border wasn't even between the inner and outer lines of the
+//board, so I added and outer border to even it out.
+//Then I alphabetized all the styling. :P
+//Oh, also, when you add a border to a div, the height and width changes
+//so its height + 2border so I compensated for that in the button styling
+*/
+.board {
+	border: 1px solid black;
+	display: inline-block;
+}
+.button {
+	border: 1px solid black;
+	cursor: pointer;
+	float: left;
+	height: 98px;
+	width: 98px;
+	
+	/*Styling for the X's or O's*/
+	font: 48px/98px "Helvetica Neue", Helvetica, Arial, sans-serif;
+	text-align: center;
+	vertical-align: middle;
+}
+.row { clear: left; }
