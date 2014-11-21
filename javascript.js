@@ -32,6 +32,9 @@ function containsAll(needles, haystack){
 //variable to store game state
 var gameover = false;
 
+//create variable to lock user interaction
+var lock = false;
+
 //write the function that detects a win
 function endgame(){
 	//Loop through winning set arrays
@@ -132,6 +135,8 @@ function intelligence(){
 	}
 	//call function endgame to check if the game is won
 	endgame();
+	//unlock user interaction once the computer has made its move
+	lock = false;
 }
 
 //when a button is clicked, call anonymous function
@@ -143,7 +148,7 @@ $(".button").mouseup(function(){
 	var move = $(this).attr("data-space");
 	
 	//if this move hasnt been played yet
-	if($.inArray(move, gameMoves) == -1 && !gameover){
+	if($.inArray(move, gameMoves) == -1 && !gameover && !lock){
 		//insert an X into this button
 		$(this).text("X");
 		
@@ -158,6 +163,9 @@ $(".button").mouseup(function(){
 		
 		//call function endgame to check if the game is won
 		endgame();
+		
+		//lock user interaction
+		lock = true;
 		
 		//With a delay of half a second (500ms), call the AI engine
 		setTimeout(intelligence, 500);
