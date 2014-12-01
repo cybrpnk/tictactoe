@@ -36,7 +36,7 @@ var gameover = false;
 var lock = false;
 
 //write the function that detects a win
-function endgame(){
+function endgame(draw){
 	//Loop through winning set arrays
 	for(var j = 0; j < winningSet.length; j++){
 		//see if the user array contains any winning sets
@@ -52,8 +52,8 @@ function endgame(){
 			$("h2").text("Computer wins!");
 		}
 	}
-	//if the game has reached move 9, and no players have one, a draw is called
-	if(gameMoves.length == 9){
+	//if the game has reached move 9, and no player has won, a draw is called
+	if(draw){
 		gameover = true;
 		$("h1").text("Game over.");
 		$("h2").text("It's a draw!");
@@ -84,6 +84,8 @@ function randMove(){
 
 //The AI engine
 function intelligence(){
+	if(gameMoves.length == 9) endgame(true);
+	
 	//A switch statement is exactly like an if..else statement, just written differently
 	switch(level){
 		case 0:
